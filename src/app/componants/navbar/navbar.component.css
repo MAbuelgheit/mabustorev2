@@ -1,0 +1,15 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .itemsCart{
+    color: white;
+  }
+  .mat-mdc-menu-item .mat-icon-no-color, .mat-mdc-menu-item .mat-mdc-menu-submenu-icon {
+    color: white;
+  }
+  .itemNumber{
+    background-color: white;
+    border-radius: 50px;
+    width: 50px;
+    color: black;
+  }

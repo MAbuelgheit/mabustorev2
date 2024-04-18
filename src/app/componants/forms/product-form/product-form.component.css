@@ -1,0 +1,14 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.example-card,img{
+    height: 465px;
+    width: 400px;
+}

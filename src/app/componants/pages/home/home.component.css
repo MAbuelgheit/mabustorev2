@@ -1,0 +1,23 @@
+.example-card {
+    max-width: 338px;
+    margin: 10px;
+  }
+.example-card img{
+    width: 338px;
+    height: 270px;
+  }
+
+.example-card-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .ng-star-inserted {
+    display: ruby-base-container;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+  .container{
+    width: 95%;
+  }

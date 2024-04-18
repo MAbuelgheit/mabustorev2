@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{form.value.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="form.value.imgURL">
+                <mat-card-content>
+                    <mat-card-title>{{form.value.price}}</mat-card-title>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button color="primary">Buy</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <div class="col-6">
+            <br>
+            <br>
+            <br>
+            <br>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Product Name</mat-label>
+                    <input formControlName="name" matInput>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Product Price</mat-label>
+                    <input formControlName="price" matInput>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Product Category</mat-label>
+                    <mat-select formControlName="category">
+                        <mat-option *ngFor="let option of categories$ | async" [value]="option">{{ option
+                            }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Product image URL</mat-label>
+                    <input formControlName="imgURL" matInput>
+                </mat-form-field>
+                <button type="submit" mat-button color="primary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

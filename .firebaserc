@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "store-app-fa713": {
+      "hosting": {
+        "store-app": [
+          "store-app-fa713"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "store-app-fa713"
+  }
+}

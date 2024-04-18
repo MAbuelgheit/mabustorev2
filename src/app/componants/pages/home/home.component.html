@@ -1,0 +1,63 @@
+<div class="row" style="display: flex; justify-content: space-around;margin-top: 20px;">
+    <div class="col-2">
+        <h3>Categories</h3>
+        <div class="card"></div>
+        <ul class="list-group">
+            <li class="list-group-item" (click)="getItemByCategory('')"><button mat-button>All Categories</button></li>
+            <li class="list-group-item" *ngFor="let category of categories$ | async"
+                (click)="getItemByCategory(category)"><button mat-button>{{category}}</button></li>
+        </ul>
+    </div>
+    <div class="col-9">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Spices" #input>
+            </mat-form-field>
+
+        </div>
+        <div class="row">
+            <div>
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <tbody>
+                        <ng-container matColumnDef="card">
+                            <th *matHeaderCellDef></th>
+                            <td *matCellDef="let product">
+                                <mat-card class="example-card">
+                                    <mat-card-header>
+                                        <mat-card-title>{{product.name}}</mat-card-title>
+                                    </mat-card-header>
+                                    <img mat-card-image [src]="product.imgURL">
+                                    <mat-card-content>
+                                        <mat-card-title>{{product.price |currency:'EGP'}}</mat-card-title>
+                                    </mat-card-content>
+                                    <mat-card-actions>
+                                        <button mat-button color="primary" (click)="addToCart(product)">Buy</button>
+                                    </mat-card-actions>
+                                </mat-card>
+                            </td>
+                        </ng-container>
+                    </tbody>
+
+
+
+
+
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[8, 16, 32, 100]" aria-label="Select page of users"></mat-paginator>
+
+            </div>
+
+        </div>
+    </div>
+</div>
